@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+
+{% block sidebar %}
+    <header class="container-fluid header">
+        <div class="container">
+            <a href="#"><img class="logo" src="{{ asset('img/logo.png') }}" alt="Tripteam" />
+            </a>
+            <nav class="menu">
+                <a href="#">Accueil</a>
+                <a href="#about">Qu'est-ce que Tripteam</a>
+                <a href="#joinus">S'inscrire</a>
+                <a href="#joinus">Se connecter</a>
+            </nav>
+        </div>
+    </header>
+{% endblock %}
+
+
+{% block body %}
+
+     <!--bannière-->
+     <section class="container-fluid banner">
+         <div class="ban">
+             <img src="{{ asset('img/ban.jpg') }}" alt="banniere du site" />
+         </div>
+         <div class="inner-banner">
+             <h1>Tripteam</h1>
+             <a href="/login"><button class="btn btn-custom">Rejoignez-nous !</button></a>
+         </div>
+     </section>
+     <!--end banner-->
+
+     <!--A propos-->
+     <section class="container-fluid about">
+         <div class="container">
+             <h2 id="about">Qu'est-ce que Tripteam ?</h2>
+             <div class="row">
+                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                     <h3>Une nouvelle façon de découvrir le monde</h3>
+                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                 </article>
+                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                     <h3>Des rencontres hors du commun</h3>
+                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                 </article>
+                 <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                     <h3>Lorem ipsum dolor sit amet, consectetur</h3>
+                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                 </article>
+             </div>
+             <hr class="separator">
+
+         </div>
+     </section>
+     <!--END a propos-->
+
+     <!--Nous rejoindre-->
+     <section class="container-fluid joinus">
+         <div class="container">
+             <h2 id="joinus">Rejoignez votre team !</h2>
+             <div class="row">
+                 <article class="col-md-6">
+                     <h3>Connectez-vous</h3>
+                     <div class="container">
+                         <div class="row main">
+                             <div class="main-login main-center">
+                                 <form class="" method="post" action="{{ path("fos_user_security_check") }}">
+                                     <div class="form-group">
+                                         <label for="email" class="cols-sm-2 control-label">Votre adresse email</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="text" placeholder="Identifiant" class="form-control" name="email" id="email"  placeholder="Entrez votre Email"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+
+
+                                     <div class="form-group">
+                                         <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="password" placeholeder="Mot de passe" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group ">
+                                         <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Se connecter</a>
+                                     </div>
+
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+                 <article class="col-md-6">
+                     <h3>Inscrivez-vous</h3>
+                     <div class="container">
+                         <div class="row main">
+                             <div class="main-login main-center">
+                                 <form class="" method="post" action="#">
+                                     <div class="form-group">
+                                         <label for="name" class="cols-sm-2 control-label">Votre prénom</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre prénom"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="lastname" class="cols-sm-2 control-label">Votre nom</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="text" class="form-control" name="username" id="username"  placeholder="Entrez votre nom"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="email" class="cols-sm-2 control-label">Votre adresse email</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="text" class="form-control" name="email" id="email"  placeholder="Entrez votre Email"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+
+
+                                     <div class="form-group">
+                                         <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="password" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="confirm" class="cols-sm-2 control-label">Confirmez votre mot de passe</label>
+                                         <div class="cols-sm-10">
+                                             <div class="input-group">
+                                                 <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmez votre mot de passe"/>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group ">
+                                         <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">S'inscrire</a>
+                                     </div>
+
+                                 </form>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+             </div>
+
+             <hr class="separator">
+
+         </div>
+
+     </section>
+
+     <!--end Nous rejoindre-->
+
+     <!--Footer-->
+
+
+
+
+ {% endblock %}

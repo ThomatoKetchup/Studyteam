@@ -1,0 +1,235 @@
+/*
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Satisfy', cursive;
+*/
+
+body,html{
+    padding : 0;
+    margin : 0;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.container-fluid{
+    margin:0;
+}
+
+.separator{
+    margin-bottom: 30px;
+    height: 3px;
+    width: 5%;
+    border:none;
+    box-shadow: none;
+    background-color: #a7e7e3;
+
+}
+
+
+
+/* Pour ne pas souligner les liens en a et en a:hover*/
+a , a:hover{
+    text-decoration: none;
+}
+
+/*header*/
+.header{
+    background-color: #a7e7e3;
+    height : 70px;
+    line-height: 70px; /*Pour centrer le contenu verticalement*/
+}
+
+.logo{
+    margin-top: -10px;
+    height: 95px;
+}
+
+.menu{
+    float:right;
+}
+
+.menu a{
+    color: black;
+    margin-right: 20px;
+}
+
+.menu a:hover{
+    color:#2C3E50; /*menu change de color quand on passe le curseur*/
+}
+
+/*banniere*/
+
+.banner{
+    width:100%;
+    max-width: 100%;
+}
+
+.ban{
+    width:100%;
+    max-width: 100%;
+    position:relative; /*donc se place en dessous de innerbanner*/
+}
+
+.ban img{
+    /*-webkit-filter: blur(5px);*/
+     width:100%;
+     max-width: 100%;
+ }
+
+.inner-banner{
+    position: absolute; /*donc se place au dessus de ban*/
+    text-align: center;
+    width: 100%;
+    top:40%;
+}
+
+.inner-banner h1{
+    font-size: 100px;
+    font-family: 'Satisfy', cursive;
+
+    color:white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.inner-banner .btn-custom{
+    margin-top: 20px;
+    background-color: #a7e7e3 ;
+    color : whitesmoke; /*Le texte dans le boutton*/
+}
+
+.inner-banner .btn-custom:hover{
+    background-color: #2C3E50;
+}
+
+
+/*about*/
+.container h2{
+    margin-top:50px;
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+
+}
+
+article h3{
+    text-align: center;
+}
+
+.row{
+    margin-top: 40px;
+}
+
+
+/*Join us*/
+
+label{
+    margin-bottom: 15px;
+}
+
+.main-login{
+    background-color: #fff;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+.form-control {
+    height: auto!important;
+    padding: 8px 12px !important; /*les form font 8px de hauteur et 12 de largeur*/
+}
+.input-group {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
+}
+#button {
+    border: 1px solid #ccc;
+    margin-top: 28px;
+    padding: 6px 12px;
+    color: #666;
+    text-shadow: 0 1px #fff;
+    cursor: pointer;
+    -moz-border-radius: 3px 3px;
+    -webkit-border-radius: 3px 3px;
+    border-radius: 3px 3px;
+    background: #f5f5f5;
+}
+.main-center{
+    margin-top: 30px;
+    margin: 0 auto;
+    width: 400px;
+    max-width: 600px;
+    padding: 10px 40px;
+    background:#a7e7e3;
+    color: #FFF;
+    text-shadow: none;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+
+}
+
+.login-button{
+    margin-top: 5px;
+}
+
+.login-register{
+    font-size: 11px;
+    text-align: center;
+}
+
+
+
+
+/*Footer*/
+
+/* footer social icons */
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left:0 !important;
+    padding: 0;
+}
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+    background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+    background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+    background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+    background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+    background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+    background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+    color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+    color:#44BCDD;
+}
+
+
+
+a {
+    background-color: #D3D3D3;
+}
+

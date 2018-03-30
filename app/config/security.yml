@@ -8,16 +8,18 @@ security:
 
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
 
     firewalls:
+
         main:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-
-            logout:       true
+                always_use_default_target_path: false
+                default_target_path: /membre
+            logout: true
             anonymous:    true
 
     access_control:

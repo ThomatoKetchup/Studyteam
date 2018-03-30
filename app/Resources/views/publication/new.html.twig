@@ -1,0 +1,38 @@
+{% extends 'membre.html.twig' %}
+
+{% block body %}
+
+    <h1>Publication creation</h1>
+    <head>
+        {% block stylesheet %}
+            <link rel="stylesheet" href="{{ asset('style/bootstrap.min.css') }}">
+        {%  endblock %}
+    </head>
+    <body>
+        <div class="container">
+    {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.textePublication, 'Nouvelle Publication :') }}
+                {{ form_widget(form.textePublication, {'attr':{'class':'form-control', 'placeholder': "Exprimez vous"}}) }}
+                {{ form_errors(form.textePublication) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.image, 'Joindre un fichier') }}
+                {{ form_widget(form.image, {'attr':{'class':'form-control'}}) }}
+                {{ form_errors(form.image) }}
+            </div>
+
+
+        <input type="submit" value="Publier " />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+         <a href="{{ path('publication_index') }}">Back to the list</a>
+        </li>
+    </ul>
+        </div>
+    </body>
+
+{% endblock %}

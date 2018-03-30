@@ -1,0 +1,54 @@
+body
+{
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right:0;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    width: 100%;
+    color: black;
+
+}
+body:before
+{
+    content:"";
+    position: fixed;
+    height: 100%;width: 100%;
+    background:url('https://1.bp.blogspot.com/-Z9ppaePaQbM/WKb19OBe_RI/AAAAAAAAWNM/D2Jv1BaVniUDHPK7kufzLzXnnXuOqGyYQCLcB/s640/volo-tramonto.jpg') fixed;
+    background-size: cover;
+    z-index: -1;
+    -webkit-filter: blur(8px);
+    -webkit-background-size: cover;
+}
+
+form{
+    background: rgba(242, 242, 242, 0.7);
+    margin-top: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+
+
+}
+input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+h1{
+    font-family: 'Raleway', sans-serif;
+    color:white;
+    text-align: center;
+}
+
+label{
+    position: center;
+
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);

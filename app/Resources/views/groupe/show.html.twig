@@ -1,0 +1,102 @@
+{% extends 'membre.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('style/profil.css') }}" rel="stylesheet" type="text/css" media="screen,projection"/>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="col-md-8 col-md-offset-1 col-sm-8  main-content">
+
+
+        <div class="row">
+            <div class="user-image">
+                <div class="logo">
+                    <h2>{{ groupe.nomG }}</h2>
+                </div>
+                <hr class="separator">
+
+                <!--Informations personnelle-->
+                <div class="infoperso">
+                    <h4>A propos du groupe</h4>
+                    <!-- Bouton execution modal -->
+
+                </div>
+
+                <hr class="separator">
+
+                <section class="container-fluid about">
+                    <div class="container">
+                        <div class="row">
+                            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                                <ul class="list-inline">
+                                    <h3>Les membres</h3>
+                                    {% for user in users %}
+                                        <li>
+
+
+                                            <a href="{{ path('user_show', { 'id': user.id }) }}">
+                                                <img src="{{ asset('user/' ~ user.brochure) }}" class="img-responsive center-block displayimg" alt="Photo de profil">
+
+                                                <span class="mail-message-preview">{{ user.prenom }}</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>                            </article>
+                            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                                <h3>Langues</h3>
+                                <ul class="list-inline">
+                                </ul>                            </article>
+                            <article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+                                <h3>Centres d'intérêts</h3>
+                                <ul class="list-inline">
+                                    {% for user in users %}
+                                        <li>Livres policiers,</li>
+                                    {% endfor %}
+                                </ul>
+                            </article>
+                        </div>
+                        <hr class="separator">
+
+                    </div>
+                </section>
+
+                <section class="content">
+
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_label(form.textePublication, 'Nouvelle Publication :') }}
+                        {{ form_widget(form.textePublication, {'attr':{'class':'form-control', 'placeholder': "Exprimez vous"}}) }}
+                        {{ form_errors(form.textePublication) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(form.image, 'Joindre un fichier') }}
+                        {{ form_widget(form.image, {'attr':{'class':'form-control'}}) }}
+                        {{ form_errors(form.image) }}
+                    </div>
+
+
+                    <input type="submit" value="Publier " />
+                    {{ form_end(form) }}
+                </section>
+
+
+
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+    </body>
+
+{% endblock %}
+
+
+

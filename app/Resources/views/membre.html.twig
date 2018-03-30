@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- CSS -->
+    <link href="{{ asset('style/membre.css') }}" rel="stylesheet" type="text/css" media="screen,projection" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!--Font style-->
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+
+{% endblock %}
+
+
+
+ {% block sidebar %}
+     <body>
+
+
+     <div class="container-fluid">
+         <div class="row">
+             <div class="col-md-2 col-sm-4 sidebar1">
+                 <div class="logo">
+                    <!-- <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block" alt="Logo"> -->
+                     <a href="#"><img class="logo img-responsive center-block" src="{{ asset('img/logo.png') }}" alt="Tripteam"     ></a>
+                        <!-- <img src="http://lorempixel.com/output/people-q-g-64-64-1.jpg" class="img-responsive center-block" alt="Logo"> -->
+                 </div>
+                     <br>
+                     <div class="left-navigation">
+                         <ul class="list">
+                             <li>
+                                <a href="{{ path('user_show', { 'id': app.user.id }) }}">
+                                    <i class="fa fa-user fa-lg"></i>  Mon profil
+                                </a>
+                             </li>
+
+                             <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users fa-lg"></i> Groupes
+                                     <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ path('groupe_index')  }}">Mes groupes</a></li>
+                                <li><a href="{{ path('groupe_search') }}">Rechercher un groupe</a></li>
+                              </ul>
+                            </li>
+
+                             <li>
+
+                             <a href="{{ path('message_index')}}">
+                                     <i class="fas fa-envelope fa-lg"></i> Mes messages
+                                 </a>
+                             </li>
+                             <li>
+
+                             <a href="{{ path('visiteur_index')}}">
+                                     <i class="fa fa-user fa-lg""></i> Déconnexion
+                                 </a>
+                             </li>
+                         </ul>
+                         <br class="testbr"> </br>
+                     </div>
+                 </div>
+
+     {% endblock %}
+     {% block content %}
+              <div class="col-md-8 col-md-offset-1 col-sm-8  main-content">
+                 <!--Main content code to be written here -->
+
+                </div>
+             </div>
+         </body>
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

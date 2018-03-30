@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Tripteam{% endblock %}</title>
+    {% block stylesheets %}
+        <!-- CSS -->
+        <link href="{{ asset('style/visiteur.css') }}" rel="stylesheet"/>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+              id="bootstrap-css">
+
+        <!--JS-->
+
+        <!--Font style-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+
+</head>
+<body>
+
+
+{% block sidebar %}{% endblock %}
+{% block content %}{% endblock %}
+
+{% block body %}{% endblock %}
+</body>
 </html>

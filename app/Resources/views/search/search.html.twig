@@ -1,0 +1,182 @@
+{% extends 'membre.html.twig' %}
+{% form_theme form _self %}
+{% block stylesheets %}
+    <link href="{{ asset('style/search.css') }}" rel="stylesheet" type="text/css" media="screen,projection" />
+    {{ parent() }}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="col-md-8 col-md-offset-1 col-sm-8">
+        <!--Ne pas toucher avant-->
+        {{ form_start(form) }}
+        <h1 class="title">Rechercher un groupe</h1>
+        <div class="row search">
+            <div class = "col-md-5 col-sm-5">
+
+                <div class="form-inline test">
+                    <label><input type="text" placeholder="Que rechechez vous?"></input></label>
+                    <label>
+                        {{ form_label(form.filiereG, 'Filière') }}
+                        {{ form_widget(form.filiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la filière"}}) }}
+                        {{ form_errors(form.filiereG) }}
+                    </label>
+
+                    <label>
+                        {{ form_label(form.anneeEtudeG, 'Année d\'étude') }}
+                        {{ form_widget(form.anneeEtudeG, {'attr':{'class':"form-control", 'placeholder': "Entrez l\'année d\'étude"}}) }}
+                        {{ form_errors(form.anneeEtudeG) }}
+                    </label>
+
+                    <label>
+                        {{ form_label(form.matiereG, 'Matière') }}
+                        {{ form_widget(form.matiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la matière"}}) }}
+                        {{ form_errors(form.matiereG) }}
+                    </label>
+
+                </div>
+            </div>
+            <div class ="col-md-5 col-sm-5">
+                <div class="form-inline">
+                    <label>
+                        {{ form_label(form.jourG, 'Jour de la semaine') }}
+                        {{ form_widget(form.jourG, {'attr': {'class':"form-control", 'placeholder': "Entrez le jour de la semaine"}}) }}
+                        {{ form_errors(form.jourG) }}
+                    </label>
+
+                    <label>
+                        {{ form_label(form.heureDebutG, 'Heure du début du cours') }}
+                        {{ form_widget(form.heureDebutG, {'attr':{'class':"form-control"}}) }}
+                        {{ form_errors(form.heureDebutG) }}
+                    </label>
+
+                    <label>
+                        {{ form_label(form.heureFinG, 'Heure de la fin du cours') }}
+                        {{ form_widget(form.heureFinG, {'attr':{'class':"form-control"}}) }}
+                        {{ form_errors(form.heureFinG) }}
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2">
+                <input type="submit" value="Valider" id="button" class="btn btn-primary btn-lg btn-block login-button"/>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createGroup">Créer un groupe</button>
+            </div>
+        </div>
+        {{ form_end(form) }}
+
+
+        {% if searchResult is defined and searchResult==0 %}
+            <ul class="mail-list">
+                {% for groupe in groupes %}
+                    <div class="col-md-2 col-sm-2">
+                        <p>photo du groupe</p>
+                    </div>
+                    <div class="col-md-5 col-sm-4">
+                        <span class="mail-sender">{{ groupe.nomG }}</span> <br>
+                        <span class="mail-message-preview">{{ groupe.jourG }}</span>
+                    </div>
+                    <div class="col-md-3 ">
+                        <span class="mail-message-preview">{% if groupe.heureDebutG %}{{ groupe.heureDebutG|date('H:i') }}{% endif %}</span><br>
+                        <span class="mail-message-preview">{% if groupe.heureFinG %}{{ groupe.heureFinG|date('H:i') }}{% endif %}</span>
+                    </div>
+                    <div class="col-md-2 col-sm-5">
+                        <a href="{{ path('group_add_user', { 'id': groupe.id }) }}">Rejoindre ce groupe</a>
+                    </div>
+                    <li>
+                        <a href=""></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if searchResult is defined and searchResult!=0 %}
+            <ul class="mail-list">
+                {% for groupe in searchResult %}
+                    <div class="col-md-2 col-sm-2">
+                        <p>photo du groupe</p>
+                    </div>
+                    <div class="col-md-5 col-sm-4">
+                        <span class="mail-sender">{{ groupe.nomG }}</span> <br>
+                        <span class="mail-message-preview">{{ groupe.jourG }}</span>
+                    </div>
+                    <div class="col-md-3 ">
+                        <span class="mail-message-preview">{% if groupe.heureDebutG %}{{ groupe.heureDebutG|date('H:i') }}{% endif %}</span><br>
+                        <span class="mail-message-preview">{% if groupe.heureFinG %}{{ groupe.heureFinG|date('H:i') }}{% endif %}</span>
+                    </div>
+                    <div class="col-md-2 col-sm-5">
+                        <a href="{{ path('group_add_user', { 'id': groupe.id }) }}">Rejoindre ce groupe</a>
+                    </div>
+                    <li>
+                        <a href=""></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+        <!--Modal créer un groupe-->
+        <div class="modal fade" id="createGroup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Créer un groupe</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {{ form_start(groupform) }}
+
+                        {{ form_label(groupform.nomG, 'Nom de votre groupe') }}
+                        {{ form_widget(groupform.nomG, {'attr':{'class':'form-control', 'placeholder': "Entrez le nom de votre groupe"}}) }}
+                        {{ form_errors(groupform.nomG) }}
+
+                        {{ form_label(form.filiereG, 'Filière') }}
+                        {{ form_widget(form.filiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la filière"}}) }}
+                        {{ form_errors(form.filiereG) }}
+
+                        {{ form_label(form.anneeEtudeG, 'Année d\'étude') }}
+                        {{ form_widget(form.anneeEtudeG, {'attr':{'class':"form-control", 'placeholder': "Entrez l\'année d\'étude"}}) }}
+                        {{ form_errors(form.anneeEtudeG) }}
+
+                        {{ form_label(form.matiereG, 'Matière') }}
+                        {{ form_widget(form.matiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la matière"}}) }}
+                        {{ form_errors(form.matiereG) }}
+
+                        {{ form_label(form.jourG, 'Jour de la semaine') }}
+                        {{ form_widget(form.jourG, {'attr': {'class':"form-control", 'placeholder': "Entrez le jour de la semaine"}}) }}
+                        {{ form_errors(form.jourG) }}
+
+                        {{ form_label(form.heureDebutG, 'Heure du début du cours') }}
+                        {{ form_widget(form.heureDebutG, {'attr':{'class':"form-control"}}) }}
+                        {{ form_errors(form.heureDebutG) }}
+
+                        {{ form_label(form.heureFinG, 'Heure de la fin du cours') }}
+                        {{ form_widget(form.heureFinG, {'attr':{'class':"form-control"}}) }}
+                        {{ form_errors(form.heureFinG) }}
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Valider" id="button" class="btn btn-primary btn-lg btn-block login-button"/>
+                        {{ form_end(groupform) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Ne pas effacer à partir de là -->
+    </div>
+    </div>
+    </body>
+
+
+{% endblock %}
+
+

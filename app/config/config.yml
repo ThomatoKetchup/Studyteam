@@ -1,11 +1,3 @@
-fos_user:
-    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-    from_email:
-        address: "dzadzadza"
-        sender_name: "dzadzadz"
-
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
@@ -14,7 +6,8 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
+    brochures_directory: 'user'
 
 framework:
     #esi: ~
@@ -76,4 +69,13 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
-
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "nguyentjpù"
+        sender_name: "%mailer_user%"
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
