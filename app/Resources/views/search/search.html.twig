@@ -69,7 +69,13 @@
         {{ form_end(form) }}
 
 
-        {% if searchResult is defined and searchResult==0 %}
+        {% if searchResult is defined and searchResult==null %}
+            {% for message in app.flashes('bat-alarm') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             <ul class="mail-list">
                 {% for groupe in groupes %}
                     <div class="col-md-2 col-sm-2">

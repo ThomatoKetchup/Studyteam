@@ -23,12 +23,13 @@ class SearchController extends Controller
         $em = $this->getDoctrine()->getManager();
         $groupes = $em->getRepository('AppBundle:Groupe')->findAll();
 
-        $searchResult=0;
+        $searchResult=null;
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $em = $this->getDoctrine()->getManager();
             $searchResult = $em->getRepository('AppBundle:Groupe')->searchGroup($data);
+            if($searchResult==null) $this->addFlash("bat-alarm", "Aucun résultat ne correspond à votre recherche");
         }
 
         // Créer un groupe formulaire

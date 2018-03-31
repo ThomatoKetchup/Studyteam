@@ -50,10 +50,6 @@ class User extends BaseUser
      */
     private $groupes;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Langue", cascade={"persist"}, inversedBy="users")
-     */
-    private $langues;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -218,39 +214,6 @@ class User extends BaseUser
         return $this->textPresentation;
     }
 
-    /**
-     * Add langue
-     *
-     * @param \AppBundle\Entity\Langue $langue
-     *
-     * @return User
-     */
-    public function addLangue(\AppBundle\Entity\Langue $langue)
-    {
-        $this->langues[] = $langue;
-
-        return $this;
-    }
-
-    /**
-     * Remove langue
-     *
-     * @param \AppBundle\Entity\Langue $langue
-     */
-    public function removeLangue(\AppBundle\Entity\Langue $langue)
-    {
-        $this->langues->removeElement($langue);
-    }
-
-    /**
-     * Get langues
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLangues()
-    {
-        return $this->langues;
-    }
 
 
     /**

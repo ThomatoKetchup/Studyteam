@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 62c3abb5e542667cace46e0b2b0d8e1d2ea5475d
 .searchbar{
     margin-top: 35px;
 }
@@ -20,7 +16,8 @@
     background: rgba(241, 171, 83, 0.6);
     border: 2px solid #f1ab53;
     border-radius: 5px;
-    padding: 10px;}
+    padding: 10px;
+}
 
 
 /*Mes messages*/
@@ -43,60 +40,11 @@
 }
 /*Forms setup*/
 .form-control {
-    border-radius:0;
-    box-shadow:none;
-    height:auto;
-<<<<<<< HEAD
-
-=======
->>>>>>> 62c3abb5e542667cace46e0b2b0d8e1d2ea5475d
-.banniere{
-    padding: 0px;
-    min-height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    height: auto;
 }
 
-.ban{
-    padding: 0px;
-    width:100%;
-    max-width: 100%;
-    position:relative; /*donc se place en dessous de innerbanner*/
-}
-
-.ban img{
-    width:100%;
-    height: 420px;
-}
-
-.inner-banner{
-    position: absolute; /*donc se place au dessus de ban*/
-    margin-left: 200px;
-    width:100%;
-    top:5%;
-}
-
-.inner-banner h1{
-    font-size: 50px;
-    font-family: 'Satisfy', cursive;
-    margin-left: 500px;
-    color:white;
-    text-shadow: 1px 1px 5px black;
-}
-
-#search_dateDebutG{
-    width: 178px;
-    display: inline-block;
-
-}
-
-#search_dateFinG{
-    width: 178px;
-    display: inline-block;
-}
-
-#search_lieuG{
-    width: 204px;
-    display: inline-block;
-}
 
 #button{
     width: 120px;
@@ -106,31 +54,7 @@
     margin-right: auto;
 }
 
-label{
-    font-family: 'Comic Sans MS', cursive;
-    font-size: 13px;
-    display:inline-block;
-    width:200px;
-    color:#FAFAD2;
-}
 
-form {
-    width: 100px;
-    margin-left: auto; /*100*/
-    margin-right: auto; /*5*/
-    line-height:15px;
-    font-family: Arial, sans-serif;
-    font-size: 13px;
-}
-
-table{
-    width: 50%;
-    margin-left: 225px;
-<<<<<<< HEAD
-
-=======
->>>>>>> 62c3abb5e542667cace46e0b2b0d8e1d2ea5475d
-}
 .float-label{
     font-size:10px;
 }
@@ -164,10 +88,7 @@ h1.content-title{
 }
 /*mail list*/
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 62c3abb5e542667cace46e0b2b0d8e1d2ea5475d
 ul.mail-list{
     padding:0;
     margin:0;
@@ -204,13 +125,5 @@ ul.mail-list li span.mail-message-preview{
     border-bottom-color:#7FBCC9!important;
 }
 .flash-notice{
-    color:red;
+    color:red
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> dcc984c92976bd45a8d61ce140fbcca3e8822550
-=======
-
->>>>>>> dcc984c92976bd45a8d61ce140fbcca3e8822550

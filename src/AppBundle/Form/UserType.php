@@ -17,13 +17,6 @@ class UserType extends AbstractType
     {
         $builder
             ->add('brochure', FileType::class, array('data_class' => null))
-
-            ->add('langues',EntityType::class, array(
-                'class'=>'AppBundle\Entity\Langue',
-                'choice_label'=>'nom',
-                'expanded'=>false,
-                'multiple'=>true,
-            ))
             ->add('text_presentation');
     }
 
