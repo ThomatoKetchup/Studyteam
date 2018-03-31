@@ -39,31 +39,6 @@ class GroupeController extends Controller
         ));
     }
 
-    /**
-     * Creates a new groupe entity.
-     *
-     * @Route("/new", name="groupe_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $groupe = new Groupe();
-        $form = $this->createForm('AppBundle\Form\GroupeType', $groupe);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($groupe);
-            $em->flush();
-
-            return $this->redirectToRoute('groupe_show', array('id' => $groupe->getId()));
-        }
-
-        return $this->render('groupe/new.html.twig', array(
-            'groupe' => $groupe,
-            'form' => $form->createView(),
-        ));
-    }
 
     /**
      * Finds and displays a groupe entity.
