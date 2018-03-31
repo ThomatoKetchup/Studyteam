@@ -25,7 +25,7 @@ body{
     width: 5%;
     border:none;
     box-shadow: none;
-    background-color: #FF8C00
+    background-color:#F5DA81
 }
 
 
@@ -37,7 +37,7 @@ a , a:hover{
 
 /*header*/
 .header{
-    background-color: #FF8C00;
+    background-color:#F5DA81;
     height : 70px;
     line-height: 70px; /*Pour centrer le contenu verticalement*/
 }
@@ -96,12 +96,12 @@ a , a:hover{
 
 .inner-banner .btn-custom{
     margin-top: 20px;
-    background-color: #FF8C00 ;
-    color : whitesmoke; /*Le texte dans le boutton*/
+    background-color: #F5DA81;
+    color : #088A08; /*Le texte dans le boutton*/
 }
 
 .inner-banner .btn-custom:hover{
-    background-color:#FFD700;
+    background-color:#58B3F0B;
 }
 
 
@@ -166,7 +166,7 @@ label{
     width: 400px;
     max-width: 600px;
     padding: 10px 40px;
-    background:#FF8C00;
+    background:#58B3F0;
     color: #FFF;
     text-shadow: none;
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);

@@ -9,8 +9,8 @@
             <nav class="menu">
                 <a href="#">Accueil</a>
                 <a href="#about">Qu'est-ce que Studyteam</a>
-                <a href="#joinus">S'inscrire</a>
-                <a href="#joinus">Se connecter</a>
+                <a href="/login">S'inscrire</a>
+                <a href="/login">Se connecter</a>
             </nav>
         </div>
     </header>
@@ -22,7 +22,7 @@
      <!--bannière-->
      <section class="container-fluid banner">
          <div class="ban">
-             <img src="{{ asset('img/ban.jpg') }}" alt="banniere du site" />
+             <img src="{{ asset('img/study.jpg') }}" alt="banniere du site" />
          </div>
          <div class="inner-banner">
              <h1>Studyteam</h1>
@@ -59,109 +59,6 @@
      <section class="container-fluid joinus">
          <div class="container">
              <h2 id="joinus">Rejoignez votre team !</h2>
-             <div class="row">
-                 <article class="col-md-6">
-                     <h3>Connectez-vous</h3>
-                     <div class="container">
-                         <div class="row main">
-                             <div class="main-login main-center">
-                                 <form class="" method="post" action="{{ path("fos_user_security_check") }}">
-                                     <div class="form-group">
-                                         <label for="email" class="cols-sm-2 control-label">Votre adresse email</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="text" placeholder="Identifiant" class="form-control" name="email" id="email"  placeholder="Entrez votre Email"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-
-
-                                     <div class="form-group">
-                                         <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="password" placeholeder="Mot de passe" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                     <div class="form-group ">
-                                         <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Se connecter</a>
-                                     </div>
-
-                                 </form>
-                             </div>
-                         </div>
-                     </div>
-                 </article>
-                 <article class="col-md-6">
-                     <h3>Inscrivez-vous</h3>
-                     <div class="container">
-                         <div class="row main">
-                             <div class="main-login main-center">
-                                 <form class="" method="post" action="#">
-                                     <div class="form-group">
-                                         <label for="name" class="cols-sm-2 control-label">Votre prénom</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="text" class="form-control" name="name" id="name"  placeholder="Entrez votre prénom"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                     <div class="form-group">
-                                         <label for="lastname" class="cols-sm-2 control-label">Votre nom</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="text" class="form-control" name="username" id="username"  placeholder="Entrez votre nom"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                     <div class="form-group">
-                                         <label for="email" class="cols-sm-2 control-label">Votre adresse email</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="text" class="form-control" name="email" id="email"  placeholder="Entrez votre Email"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-
-
-                                     <div class="form-group">
-                                         <label for="password" class="cols-sm-2 control-label">Mot de passe</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="password" class="form-control" name="password" id="password"  placeholder="Entrez votre mot de passe"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                     <div class="form-group">
-                                         <label for="confirm" class="cols-sm-2 control-label">Confirmez votre mot de passe</label>
-                                         <div class="cols-sm-10">
-                                             <div class="input-group">
-                                                 <input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirmez votre mot de passe"/>
-                                             </div>
-                                         </div>
-                                     </div>
-
-                                     <div class="form-group ">
-                                         <a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">S'inscrire</a>
-                                     </div>
-
-                                 </form>
-                             </div>
-                         </div>
-                     </div>
-                 </article>
-             </div>
-
-             <hr class="separator">
-
-         </div>
 
      </section>
 
