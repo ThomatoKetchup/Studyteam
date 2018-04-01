@@ -12,10 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Publication
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="Publication")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
-     */
+
     /**
      * @var int
      *
@@ -28,24 +25,16 @@ class Publication
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datePublication", type="datetime")
+     * @ORM\Column(name="date", type="datetime")
      */
-    private $datePublication;
+    private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="textePublication", type="text", nullable=true)
+     * @ORM\Column(name="content", type="text", nullable=false)
      */
-    private $textePublication;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     */
-    private $image;
-
+    private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity="Groupe")
@@ -53,11 +42,17 @@ class Publication
      */
     private $groupe;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $author;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -65,83 +60,52 @@ class Publication
     }
 
     /**
-     * Set datePublication
+     * Set date
      *
-     * @param \DateTime $datePublication
+     * @param \DateTime $date
      *
      * @return Publication
      */
-    public function setDatePublication($datePublication)
+    public function setDate($date)
     {
-        $this->datePublication = $datePublication;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get datePublication
+     * Get date
      *
      * @return \DateTime
      */
-    public function getDatePublication()
+    public function getDate()
     {
-        return $this->datePublication;
+        return $this->date;
     }
 
     /**
-     * Set textePublication
+     * Set content
      *
-     * @param string $textePublication
+     * @param string $content
      *
      * @return Publication
      */
-    public function setTextePublication($textePublication)
+    public function setContent($content)
     {
-        $this->textePublication = $textePublication;
+        $this->content = $content;
 
         return $this;
     }
 
     /**
-     * Get textePublication
+     * Get content
      *
      * @return string
      */
-    public function getTextePublication()
+    public function getContent()
     {
-        return $this->textePublication;
+        return $this->content;
     }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     *
-     * @return Publication
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function __construct()
-    {
-        $this ->datePublication = new \DateTime('now');
-
-    }
-
 
     /**
      * Set groupe
@@ -165,5 +129,29 @@ class Publication
     public function getGroupe()
     {
         return $this->groupe;
+    }
+
+    /**
+     * Set author
+     *
+     * @param \AppBundle\Entity\User $author
+     *
+     * @return Publication
+     */
+    public function setAuthor(\AppBundle\Entity\User $author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

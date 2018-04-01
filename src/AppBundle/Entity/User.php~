@@ -31,11 +31,6 @@ class User extends BaseUser
     protected $prenom;
 
 
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     *
-     */
-    private $dateofbirth;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -50,18 +45,27 @@ class User extends BaseUser
      */
     private $groupes;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Langue", cascade={"persist"}, inversedBy="users")
-     */
-    private $langues;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
-     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
      * @Assert\File(mimeTypes={ "image/jpeg", "image/png", "image/jpg",})
      */
     private $brochure;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $role;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Subject", cascade={"persist"}, inversedBy="users")
+     */
+    private $subjects;
+
+
+
+
 
 
 
@@ -129,37 +133,7 @@ class User extends BaseUser
         return $this->prenom;
     }
 
-    /**
-     * Set dateofbirth
-     *
-     * @param \DateTime $dateofbirth
-     *
-     * @return User
-     */
-    public function setDateofbirth($dateofbirth)
-    {
-        $this->dateofbirth = $dateofbirth;
 
-        return $this;
-    }
-
-    /**
-     * Get dateofbirth
-     *
-     * @return \DateTime
-     */
-    public function getDateofbirth()
-    {
-        return $this->dateofbirth;
-    }
-
-    /**
-     * Add groupe
-     *
-     * @param \AppBundle\Entity\Groupe $groupe
-     *
-     * @return User
-     */
     public function addGroupe(\AppBundle\Entity\Groupe $groupe)
     {
         $this->groupes[] = $groupe;
@@ -219,39 +193,6 @@ class User extends BaseUser
         return $this->textPresentation;
     }
 
-    /**
-     * Add langue
-     *
-     * @param \AppBundle\Entity\Langue $langue
-     *
-     * @return User
-     */
-    public function addLangue(\AppBundle\Entity\Langue $langue)
-    {
-        $this->langues[] = $langue;
-
-        return $this;
-    }
-
-    /**
-     * Remove langue
-     *
-     * @param \AppBundle\Entity\Langue $langue
-     */
-    public function removeLangue(\AppBundle\Entity\Langue $langue)
-    {
-        $this->langues->removeElement($langue);
-    }
-
-    /**
-     * Get langues
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getLangues()
-    {
-        return $this->langues;
-    }
 
 
     /**
@@ -276,5 +217,29 @@ class User extends BaseUser
     public function getBrochure()
     {
         return $this->brochure;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

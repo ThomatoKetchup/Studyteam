@@ -31,11 +31,6 @@ class User extends BaseUser
     protected $prenom;
 
 
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     *
-     */
-    private $dateofbirth;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -57,6 +52,20 @@ class User extends BaseUser
      * @Assert\File(mimeTypes={ "image/jpeg", "image/png", "image/jpg",})
      */
     private $brochure;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $role;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Subject", cascade={"persist"}, inversedBy="users")
+     */
+    private $subjects;
+
+
+
+
 
 
 
@@ -124,37 +133,7 @@ class User extends BaseUser
         return $this->prenom;
     }
 
-    /**
-     * Set dateofbirth
-     *
-     * @param \DateTime $dateofbirth
-     *
-     * @return User
-     */
-    public function setDateofbirth($dateofbirth)
-    {
-        $this->dateofbirth = $dateofbirth;
 
-        return $this;
-    }
-
-    /**
-     * Get dateofbirth
-     *
-     * @return \DateTime
-     */
-    public function getDateofbirth()
-    {
-        return $this->dateofbirth;
-    }
-
-    /**
-     * Add groupe
-     *
-     * @param \AppBundle\Entity\Groupe $groupe
-     *
-     * @return User
-     */
     public function addGroupe(\AppBundle\Entity\Groupe $groupe)
     {
         $this->groupes[] = $groupe;
@@ -238,5 +217,63 @@ class User extends BaseUser
     public function getBrochure()
     {
         return $this->brochure;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     *
+     * @return User
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Add subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     *
+     * @return User
+     */
+    public function addSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subjects[] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Remove subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     */
+    public function removeSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subjects->removeElement($subject);
+    }
+
+    /**
+     * Get subjects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubjects()
+    {
+        return $this->subjects;
     }
 }

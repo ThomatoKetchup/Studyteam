@@ -17,84 +17,158 @@
                     <img src="{{ asset('user/' ~ user.brochure) }}" class="img-responsive center-block logoimg" alt="Photo de profil"></div>
                 <h2>{{ user.prenom }} {{ user.nom |  capitalize }}</h2>
             </div>
-
-            {{ app.user.id }} {{ user.id }}
-
             {% if app.user.id == user.id %}
-                <button class="btn btn-primary" data-toggle="modal" data-target="#modifyProfil">Modifiez mon profil</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#modifyProfil">Gérer mon profil</button>
             {% else %}
                 <button class="btn btn-primary" data-toggle="modal" data-target="#sendMessage"><i class="fas fa-envelope fa-lg"></i> Envoyez-lui un message</button>
             {% endif %}
 
 
-            <!--Envoyez un message-->
-
-            <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                        </div>
-                        <div class="modal-body">
-                            {{ form_start(message_form) }}
-                            {{ form_widget(message_form) }}
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary" value="Envoyer" />
-                            {{ form_end(message_form) }}
-                        </div>
-
-
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-
             <!--Informations personnelle-->
             <div class="infoperso">
                 <h4>Informations personnelles</h4>
-                <!-- Bouton execution modal -->
-                <!-- Modal -->
-                <div class="modal fade" id="modifyProfil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                            </div>
-                            <div class="modal-body">
-                                {{ form_start(edit_form) }}
-                                {{ form_widget(edit_form) }}
-                                {{ form_row(edit_form.brochure) }}
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <input type="submit" class="btn btn-primary" value="Edit" />
-                                {{ form_end(edit_form) }}
-                            </div>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal-dialog -->
-                </div><!-- /.modal -->
                 <p>{{ user.textpresentation }}</p>
 
             </div>
             <hr class="separator">
 
+            <div class="cdi">
+                <h4>Centres d'intérêts</h4>
+                <ul class="list-inline">
+                    <li>Livres policiers,</li>
+                    <li> Salut test</li>
+
+                    <li>Le football argentin,</li>
+
+                    <li>Les tigres</li>
+
+                </ul>
+            </div>
+
+            <hr class="separator">
+
+
+            <hr class="separator">
 
             <div class="groups">
                 <h4>Groupes</h4>
+                <ul class="list-inline">
+                    <li><a>Les teufeurs</a></li>
+
+                    <li>Anglais</li>
+
+                    <li>Espagnol</li>
+
+                </ul>
 
             </div>
 
             <hr class="separator">
 
+            <div class="voyages">
+                <h4>Voyages</h4>
+            </div>
         </div>
     </div>
     </div>
 
+
+
+
+    <!--Modal Envoyez un message-->
+
+    <div class="modal fade" id="sendMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    {{ form_start(message_form) }}
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="">{{ form_label(message_form.contenu, 'Votre message') }}</label>
+                        <div class="col-md-9">
+                            {{ form_widget(message_form.contenu, {'attr':{'class':"form-control", 'placeholder': "Ecrivez votre message"}}) }}
+                        </div>
+                        {{ form_errors(message_form.contenu) }}
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Envoyer" />
+                    {{ form_end(message_form) }}
+                </div>
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <!-- Modal gérer mon profil -->
+    <div class="modal fade" id="modifyProfil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="form-horizontal" action="" method="post">
+                            <fieldset>
+                                {{ form_start(edit_form) }}
+                                <!-- Photo de profil input-->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.brochure, 'Photo de profil') }}</label>
+                                    <div class="col-md-9">
+                                        {{ form_widget(edit_form.brochure, {'attr':{'class':"form-control", 'placeholder': "Entrez le lieu de votre séjour"}}) }}
+                                    </div>
+                                    {{ form_errors(edit_form.brochure) }}
+
+                                </div>
+                                <!-- About input-->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.text_presentation, 'A propos de vous') }}</label>
+                                    <div class="col-md-9">
+                                        {{ form_widget(edit_form.text_presentation, {'attr':{'class':"form-control", 'placeholder': "Parlez de vous", 'style' : 'height:200px'}}) }}
+                                    </div>
+                                    {{ form_errors(edit_form.text_presentation) }}
+                                </div>
+
+                                <!-- Subjects input-->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.subjects, 'Vos matières') }}</label>
+                                    <div class="col-md-9">
+                                        {{ form_widget(edit_form.subjects, {'attr':{'class':"form-control"}}) }}
+                                    </div>
+                                    {{ form_errors(edit_form.subjects) }}
+                                </div>
+
+                                <!-- Subjects input-->
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.subjects, 'Vos matières') }}</label>
+                                    <div class="col-md-9">
+                                        {{ form_widget(edit_form.subjects, {'attr':{'class':"form-control"}}) }}
+                                    </div>
+                                    {{ form_errors(edit_form.subjects) }}
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Envoyer" />
+                    {{ form_end(message_form) }}
+                </div>
+
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
 
     </body>

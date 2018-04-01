@@ -12,6 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GroupeRepository")
  * @UniqueEntity("nomG")
  */
+
 class Groupe
 {
 
@@ -280,5 +281,29 @@ class Groupe
     public function getHeureFinG()
     {
         return $this->heureFinG;
+    }
+
+    /**
+     * Set nomG
+     *
+     * @param string $nomG
+     *
+     * @return Groupe
+     */
+    public function setNomG($nomG)
+    {
+        $this->nomG = $nomG;
+
+        return $this;
+    }
+
+    /**
+     * Get nomG
+     *
+     * @return string
+     */
+    public function getNomG()
+    {
+        return $this->nomG;
     }
 }
