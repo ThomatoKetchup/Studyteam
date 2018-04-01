@@ -54,17 +54,16 @@ class User extends BaseUser
     private $brochure;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $role;
 
+
     /**
-     * @ORM\ManyToMany(targetEntity="Subject", cascade={"persist"}, inversedBy="users")
+     * @ORM\OneToMany(targetEntity="Groupe", mappedBy="admin")
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $subjects;
-
-
-
+    private $groupsAdmin;
 
 
 
@@ -243,37 +242,39 @@ class User extends BaseUser
         return $this->role;
     }
 
+
+
     /**
-     * Add subject
+     * Add groupsAdmin
      *
-     * @param \AppBundle\Entity\Subject $subject
+     * @param \AppBundle\Entity\Groupe $groupsAdmin
      *
      * @return User
      */
-    public function addSubject(\AppBundle\Entity\Subject $subject)
+    public function addGroupsAdmin(\AppBundle\Entity\Groupe $groupsAdmin)
     {
-        $this->subjects[] = $subject;
+        $this->groupsAdmin[] = $groupsAdmin;
 
         return $this;
     }
 
     /**
-     * Remove subject
+     * Remove groupsAdmin
      *
-     * @param \AppBundle\Entity\Subject $subject
+     * @param \AppBundle\Entity\Groupe $groupsAdmin
      */
-    public function removeSubject(\AppBundle\Entity\Subject $subject)
+    public function removeGroupsAdmin(\AppBundle\Entity\Groupe $groupsAdmin)
     {
-        $this->subjects->removeElement($subject);
+        $this->groupsAdmin->removeElement($groupsAdmin);
     }
 
     /**
-     * Get subjects
+     * Get groupsAdmin
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSubjects()
+    public function getGroupsAdmin()
     {
-        return $this->subjects;
+        return $this->groupsAdmin;
     }
 }

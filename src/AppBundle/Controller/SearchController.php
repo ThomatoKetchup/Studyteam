@@ -41,6 +41,7 @@ class SearchController extends Controller
          if ($groupform->isSubmitted() && $groupform->isValid()) {
             $this->getUser()->addGroupe($groupe);
             $groupe->addUser($this->getUser());
+            $groupe->setAdmin($this->getUser());
             $em = $this->getDoctrine()->getManager();
             $em->persist($groupe);
             $em->flush();

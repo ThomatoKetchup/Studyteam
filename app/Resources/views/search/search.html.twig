@@ -72,11 +72,11 @@
 
             <ul class="mail-list">
                 {% for groupe in groupes %}
-                    <div class="col-md-2 col-sm-2">
-                        <p>photo du groupe</p>
+                    <div class="col-md-5 col-sm-2">
+                        <span class="mail-message-preview"> Cours de {{ groupe.matiereG }} avec {{ groupe.admin.nom }} {{ groupe.admin.prenom }}</span>
                     </div>
-                    <div class="col-md-5 col-sm-4">
-                        <span class="mail-sender">{{ groupe.nomG }}</span> <br>
+                    <div class="col-md-2 col-sm-4">
+                        <span class="mail-sender"></span> <br>
                         <span class="mail-message-preview">{{ groupe.jourG }}</span>
                     </div>
                     <div class="col-md-3 ">
@@ -87,7 +87,7 @@
                         <a href="{{ path('group_add_user', { 'id': groupe.id }) }}">Rejoindre ce groupe</a>
                     </div>
                     <li>
-                        <a href=""></a>
+                        <a href="{{ path('groupe_show', { 'id': groupe.id }) }}"></a>
                     </li>
                 {% endfor %}
             </ul>
@@ -100,7 +100,7 @@
                         <p>photo du groupe</p>
                     </div>
                     <div class="col-md-5 col-sm-4">
-                        <span class="mail-sender">{{ groupe.nomG }}</span> <br>
+                        <span class="mail-sender"></span> <br>
                         <span class="mail-message-preview">{{ groupe.jourG }}</span>
                     </div>
                     <div class="col-md-3 ">

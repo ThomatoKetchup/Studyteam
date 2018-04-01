@@ -59,12 +59,15 @@ class User extends BaseUser
     private $role;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Subject", cascade={"persist"}, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Subject", cascade={"persist"}, inversedBy="users")
      */
     private $subjects;
 
-
-
+    /**
+     * @ORM\OneToMany(targetEntity="Groupe", mappedBy="admin")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $groupsAdmin;
 
 
 

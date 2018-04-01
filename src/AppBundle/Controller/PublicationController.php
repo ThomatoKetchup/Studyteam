@@ -131,6 +131,6 @@ class PublicationController extends Controller
             ->setAction($this->generateUrl('publication_delete', array('id' => $publication->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

@@ -48,27 +48,42 @@ class GroupeController extends Controller
      */
     public function showAction(Request $request,Groupe $groupe)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        /*Créer une nouvelle publication */
         $publication = new Publication();
         $form = $this->createForm('AppBundle\Form\PublicationType', $publication);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /*La publication appartient à ce groupe, à pour auteur l'user actuel et est écrit à la date actuelle*/
             $publication->setGroupe($groupe);
-            $publication->setDatePublication('2000-01-01');
+            $publication->setAuthor($this->getUser());
+            $publication->setDate(new \DateTime("now"));
             $em = $this->getDoctrine()->getManager();
             $em->persist($publication);
             $em->flush();
-
-            return $this->redirectToRoute('publication_show', array('id' => $publication->getId()));
+            return $this->redirectToRoute('groupe_show', array('id' => $groupe->getId()));
         }
+
 
         //$groupes = $this->getUser()->getGroupes();
         //dump($this->getGroupe());die;
         $users = $groupe->getUsers();
+
+        //On récupère les publications liées à ce groupe du plus récent au plus ancien
+        $publications = $em->getRepository('AppBundle:Publication')->findBy(
+            array('groupe' => $groupe),
+            array('date' => 'desc'),
+            $limit  = 5,
+            $offset = null
+        );
+
         return $this->render('groupe/show.html.twig', array(
             'form' => $form->createView(),
             'groupe' => $groupe,
             'users' => $users,
+            'publications'=>$publications,
         ));
     }
 
@@ -97,57 +112,20 @@ class GroupeController extends Controller
         ));
     }
 
-    /**
-     * Deletes a groupe entity.
-     *
-     * @Route("/{id}", name="groupe_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, Groupe $groupe)
-    {
-        $form = $this->createDeleteForm($groupe);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($groupe);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('groupe_index');
-    }
-
-    /**
-     * Creates a form to delete a groupe entity.
-     *
-     * @param Groupe $groupe The groupe entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Groupe $groupe)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('groupe_delete', array('id' => $groupe->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
-    }
-
 
     /**
      * Ajoute l'utilisateur courant au groupe passé en paramètre
      *
-     * @Route("/{id}", name="group_add_user")
+     * @Route("/add/{id}", name="group_add_user")
      * @Method({"GET"})
      */
     public function addUserAction(Groupe $groupe){
         $groupe->addUser($this->getUser());
-
         $this->getUser()->addGroupe($groupe);
         $em = $this->getDoctrine()->getManager();
         $em->persist($groupe);
         $em->flush();
-        return $this->render('membre.html.twig');
+        return $this->redirectToRoute('groupe_show', array('id' => $groupe->getId()));
     }
 
 }

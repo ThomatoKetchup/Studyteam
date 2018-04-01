@@ -67,11 +67,13 @@ class Groupe
      */
     protected $users;
 
+
+
     /**
-     * @ORM\OneToMany(targetEntity="Subject", mappedBy="groups" )
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="groupsAdmin")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $subject;
+    private $admin;
 
 
     /**
@@ -275,37 +277,52 @@ class Groupe
 
 
 
+
     /**
-     * Add subject
+     * Add admin
      *
-     * @param \AppBundle\Entity\Subject $subject
+     * @param \AppBundle\Entity\User $admin
      *
      * @return Groupe
      */
-    public function addSubject(\AppBundle\Entity\Subject $subject)
+    public function addAdmin(\AppBundle\Entity\User $admin)
     {
-        $this->subject[] = $subject;
+        $this->admin[] = $admin;
 
         return $this;
     }
 
     /**
-     * Remove subject
+     * Remove admin
      *
-     * @param \AppBundle\Entity\Subject $subject
+     * @param \AppBundle\Entity\User $admin
      */
-    public function removeSubject(\AppBundle\Entity\Subject $subject)
+    public function removeAdmin(\AppBundle\Entity\User $admin)
     {
-        $this->subject->removeElement($subject);
+        $this->admin->removeElement($admin);
     }
 
     /**
-     * Get subject
+     * Get admin
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSubject()
+    public function getAdmin()
     {
-        return $this->subject;
+        return $this->admin;
+    }
+
+    /**
+     * Set admin
+     *
+     * @param \AppBundle\Entity\User $admin
+     *
+     * @return Groupe
+     */
+    public function setAdmin(\AppBundle\Entity\User $admin)
+    {
+        $this->admin = $admin;
+
+        return $this;
     }
 }

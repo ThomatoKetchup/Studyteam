@@ -10,7 +10,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="groupe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GroupeRepository")
- * @UniqueEntity("nomG")
  */
 
 class Groupe
@@ -25,7 +24,6 @@ class Groupe
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
 
     /**
      * @var string
@@ -63,24 +61,24 @@ class Groupe
      */
     private $heureFinG;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomG", type="string", length=100, unique=true)
-     */
-    private $nomG;
-
 
     /**
      * @ORM\ManyToMany(targetEntity="User", cascade={"persist"}, mappedBy="groupes")
      */
     protected $users;
 
+
     /**
      * @ORM\OneToMany(targetEntity="Subject", mappedBy="groups" )
      * @ORM\JoinColumn(nullable=false)
      */
     private $subject;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="groupsAdmin")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $admin;
 
 
     /**
@@ -282,29 +280,7 @@ class Groupe
         return $this->heureFinG;
     }
 
-    /**
-     * Set nomG
-     *
-     * @param string $nomG
-     *
-     * @return Groupe
-     */
-    public function setNomG($nomG)
-    {
-        $this->nomG = $nomG;
 
-        return $this;
-    }
-
-    /**
-     * Get nomG
-     *
-     * @return string
-     */
-    public function getNomG()
-    {
-        return $this->nomG;
-    }
 
     /**
      * Add subject
@@ -338,5 +314,39 @@ class Groupe
     public function getSubject()
     {
         return $this->subject;
+    }
+
+    /**
+     * Add admin
+     *
+     * @param \AppBundle\Entity\User $admin
+     *
+     * @return Groupe
+     */
+    public function addAdmin(\AppBundle\Entity\User $admin)
+    {
+        $this->admin[] = $admin;
+
+        return $this;
+    }
+
+    /**
+     * Remove admin
+     *
+     * @param \AppBundle\Entity\User $admin
+     */
+    public function removeAdmin(\AppBundle\Entity\User $admin)
+    {
+        $this->admin->removeElement($admin);
+    }
+
+    /**
+     * Get admin
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
     }
 }

@@ -24,12 +24,12 @@ class UserType extends AbstractType
                     'Yes' => true,
                     'No' => false,
                 )))
-            ->add('subjects',EntityType::class, array(
+            /*->add('subjects',EntityType::class, array(
                 'class'=>'AppBundle\Entity\Subject',
                 'choice_label'=>'name',
                 'expanded'=>false,
                 'multiple'=>true,
-            ));
+            ))*/;
     }
 
     /**

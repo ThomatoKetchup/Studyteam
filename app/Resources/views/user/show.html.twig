@@ -113,12 +113,6 @@
                     <div class="row">
                         <form class="form-horizontal" action="" method="post">
                             <fieldset>
-                          <!--      {{ form_start(edit_form) }}
-                                {{ form_widget(edit_form) }}
-                                <input type="submit" class="btn btn-primary" value="Envoyer" />
-                                {{ form_end(edit_form) }}-->
-
-                                {{ form_start(edit_form) }}
                                 <!-- Photo de profil input-->
                                 <!-- About input-->
                                 <div class="form-group">
@@ -140,18 +134,15 @@
 
                                 <!-- Subjects input-->
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.subjects, 'Vos matières') }}</label>
-                                    <div class="col-md-9">
-                                        {{ form_widget(edit_form.subjects, {'attr':{'class':"form-control"}}) }}
-                                    </div>
-                                    {{ form_errors(edit_form.subjects) }}
+
                                 </div>
                             </fieldset>
                         </form>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" value="Edit" />
+                    {{ form_widget(edit_form) }}
+                    <input type="submit" class="btn btn-primary" value="Envoyer" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     {{ form_end(edit_form) }}
                 </div>

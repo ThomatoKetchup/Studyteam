@@ -9,7 +9,7 @@
                 <div class="container">
                     <div class="content-container clearfix">
                         <div class="col-md-12">
-                            <h1 class="content-title">Mes groupes</h1>
+                            <h2 class="content-title">Mes groupes</h2>
 
                             <input type="search" placeholder="Rechercher un groupe" class="form-control mail-search" />
 
@@ -17,9 +17,8 @@
                             <ul class="mail-list">
                                 {% for groupe in groupes %}
                                     <li>
-
                                         <a href="{{ path('groupe_show', { 'id': groupe.id }) }}">
-                                            <span class="mail-message-preview">{{ groupe.nomG }}</span>
+                                            <span class="mail-message-preview"> Cours de {{ groupe.matiereG }} avec {{ groupe.admin.nom }} {{ groupe.admin.prenom }}</span>
                                         </a>
                                     </li>
                                 {% endfor %}

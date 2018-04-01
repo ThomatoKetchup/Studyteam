@@ -14,8 +14,8 @@ class GroupeRepository extends \Doctrine\ORM\EntityRepository
     {
         $queryBuilder = $this->createQueryBuilder('groupe')
             ->select('groupe')
-            ->where('groupe.filiereG=?1')
-            ->andWhere('groupe.anneeEtudeG=?2')
+            //->where('groupe.filiereG=?1')
+            ->where('groupe.anneeEtudeG=?2')
             ->andWhere('groupe.matiereG=?3')
             ->andWhere('groupe.jourG=?4');
 
@@ -38,7 +38,7 @@ class GroupeRepository extends \Doctrine\ORM\EntityRepository
 
             $queryBuilder->andWhere($orModule);
 
-            $queryBuilder->setParameters(array(1 => $data['filiereG'], 2 => $data['anneeEtudeG'], 3 => $data['matiereG'], 4 => $data['jourG'], 5 => $data['heureDebutG'], 6 => $data['heureFinG']));
+            $queryBuilder->setParameters(array(2 => $data['anneeEtudeG'], 3 => $data['matiereG'], 4 => $data['jourG'], 5 => $data['heureDebutG'], 6 => $data['heureFinG']));
 
         return ($queryBuilder->getQuery()->execute());
     }
