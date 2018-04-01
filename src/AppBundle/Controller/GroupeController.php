@@ -87,30 +87,6 @@ class GroupeController extends Controller
         ));
     }
 
-    /**
-     * Displays a form to edit an existing groupe entity.
-     *
-     * @Route("/{id}/edit", name="groupe_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, Groupe $groupe)
-    {
-        $deleteForm = $this->createDeleteForm($groupe);
-        $editForm = $this->createForm('AppBundle\Form\GroupeType', $groupe);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('groupe_edit', array('id' => $groupe->getId()));
-        }
-
-        return $this->render('groupe/edit.html.twig', array(
-            'groupe' => $groupe,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
 
 
     /**
