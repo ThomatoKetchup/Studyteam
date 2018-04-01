@@ -16,7 +16,7 @@ body {
     width: 12%;
     border: none;
     box-shadow: none;
-    background-color: #F17153;
+    background-color: #F5DA81;
 }
 
 h2{
@@ -27,16 +27,7 @@ h2{
 
 /*Sidebar menu à gauche*/
 .sidebar1 {
-    background: #F17153;
-    /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#F17153, #F58D63, #f1ab53);
-    /* Standard syntax */
+    background: #F5DA81;
     padding: 0px;
     min-height: 100%;
 }
@@ -56,8 +47,7 @@ h2{
 }
 
 .list {
-
-    color: #fff;
+    color: black;
     list-style: none;
     padding-left: 0px;
     font-size: large;

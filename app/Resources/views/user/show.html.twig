@@ -24,7 +24,7 @@
             {% endif %}
 
 
-            <!--Informations personnelle-->
+            <!--Informations personnelles-->
             <div class="infoperso">
                 <h4>Informations personnelles</h4>
                 <p>{{ user.textpresentation }}</p>
@@ -39,11 +39,10 @@
             <div class="groups">
                 <h4>Les cours que je suis</h4>
                 <ul class="list-inline">
-                    <li><a>Les teufeurs</a></li>
+                    <li>Cours de statistiques</li>
 
-                    <li>Anglais</li>
+                    <li>Cours de programmation Java</li>
 
-                    <li>Espagnol</li>
 
                 </ul>
 
@@ -53,11 +52,7 @@
             <div class="groups">
                 <h4>Les cours que je donne</h4>
                 <ul class="list-inline">
-                    <li><a>Les teufeurs</a></li>
-
-                    <li>Anglais</li>
-
-                    <li>Espagnol</li>
+                    <li>Cours de probabilités</li>
 
                 </ul>
 
@@ -76,7 +71,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Envoyez-lui un message</h4>
                 </div>
                 <div class="modal-body">
                     {{ form_start(message_form) }}
@@ -107,7 +102,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Gérer mon profil</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -123,14 +118,6 @@
                                     {{ form_errors(edit_form.text_presentation) }}
                                 </div>
 
-                                <!-- Role input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.role, 'Vous êtes ...') }}</label>
-                                    <div class="col-md-9">
-                                        {{ form_widget(edit_form.role, {'attr':{'class':"form-control"}}) }}
-                                    </div>
-                                    {{ form_errors(edit_form.role) }}
-                                </div>
 
                                 <!-- Subjects input-->
                                 <div class="form-group">

@@ -19,11 +19,7 @@ class UserType extends AbstractType
         $builder
             //->add('brochure', FileType::class, array('data_class' => null))
             ->add('text_presentation')
-            ->add('role', ChoiceType::class, array(
-                'choices'  => array(
-                    'Yes' => true,
-                    'No' => false,
-                )))
+
             /*->add('subjects',EntityType::class, array(
                 'class'=>'AppBundle\Entity\Subject',
                 'choice_label'=>'name',

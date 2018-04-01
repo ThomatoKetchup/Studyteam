@@ -27,14 +27,14 @@ class SearchType extends AbstractType
                     '5ème année' => 5)))
             ->add('matiereG', ChoiceType::class, array(
                 'choices'  => array(
-                    'Probabilité' => 'Probabilité',
+                    'Probabilités' => 'Probabilités',
                     'Programmation Java' => 'Programmation Java',
                     'Histoire du droit' => 'Histoire du droit',)))
             ->add('jourG', ChoiceType::class, array(
                 'choices'  => array(
                     'Lundi' => 'lundi',
                     'Mardi' => 'mardi',
-                    'Mercired' => 'mercredi',
+                    'Mercredi' => 'mercredi',
                     'Jeudi' => 'jeudi',
                     'Vendredi' => 'vendredi',
                     'Samedi' => 'samedi',)))

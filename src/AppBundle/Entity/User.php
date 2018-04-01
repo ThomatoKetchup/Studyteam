@@ -53,10 +53,6 @@ class User extends BaseUser
      */
     private $brochure;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $role;
 
 
     /**

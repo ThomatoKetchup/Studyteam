@@ -21,3 +21,34 @@ body:before
     -webkit-filter: blur(8px);
     -webkit-background-size: cover;
 }
+
+form{
+    background: rgba(242, 242, 242, 0.7);
+    margin-top: 150px;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
+input{
+    width: 100%;
+    padding: 15px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size:40px;
+    font-weight:300;
+    text-align:center;
+    font-family: 'Open Sans', sans-serif!important;
+    color: white;
+}
+
+label{
+    font-family: 'Open Sans', sans-serif!important;
+    position: center;
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
