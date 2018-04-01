@@ -74,6 +74,7 @@ textarea {
     margin-bottom:20px;
 }
 h1.content-title{
+    color:red;
     font-size:32px;
     font-weight:300;
     text-align:center;

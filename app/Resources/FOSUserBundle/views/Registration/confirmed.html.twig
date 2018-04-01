@@ -4,6 +4,7 @@
 
 {% block fos_user_content %}
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    <a href="/membre">Vous avez accès à l'espace membre</a>
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}

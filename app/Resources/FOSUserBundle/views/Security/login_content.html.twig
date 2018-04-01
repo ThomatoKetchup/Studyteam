@@ -26,7 +26,7 @@
                 <div class="wrap">
                     <p class="form-title">
                         Se connecter</p>
-                    <form action="{{ path('user_show', { 'id': app.user.id }) }}" method="post" class="login">
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="login">
 
                         {% if csrf_token %}
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
