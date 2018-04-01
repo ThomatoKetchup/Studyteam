@@ -30,28 +30,14 @@
                 <p>{{ user.textpresentation }}</p>
 
             </div>
-            <hr class="separator">
 
-            <div class="cdi">
-                <h4>Centres d'intérêts</h4>
-                <ul class="list-inline">
-                    <li>Livres policiers,</li>
-                    <li> Salut test</li>
 
-                    <li>Le football argentin,</li>
-
-                    <li>Les tigres</li>
-
-                </ul>
-            </div>
-
-            <hr class="separator">
 
 
             <hr class="separator">
 
             <div class="groups">
-                <h4>Groupes</h4>
+                <h4>Les cours que je suis</h4>
                 <ul class="list-inline">
                     <li><a>Les teufeurs</a></li>
 
@@ -62,11 +48,19 @@
                 </ul>
 
             </div>
-
             <hr class="separator">
 
-            <div class="voyages">
-                <h4>Voyages</h4>
+            <div class="groups">
+                <h4>Les cours que je donne</h4>
+                <ul class="list-inline">
+                    <li><a>Les teufeurs</a></li>
+
+                    <li>Anglais</li>
+
+                    <li>Espagnol</li>
+
+                </ul>
+
             </div>
         </div>
     </div>
@@ -119,16 +113,13 @@
                     <div class="row">
                         <form class="form-horizontal" action="" method="post">
                             <fieldset>
+                          <!--      {{ form_start(edit_form) }}
+                                {{ form_widget(edit_form) }}
+                                <input type="submit" class="btn btn-primary" value="Envoyer" />
+                                {{ form_end(edit_form) }}-->
+
                                 {{ form_start(edit_form) }}
                                 <!-- Photo de profil input-->
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.brochure, 'Photo de profil') }}</label>
-                                    <div class="col-md-9">
-                                        {{ form_widget(edit_form.brochure, {'attr':{'class':"form-control", 'placeholder': "Entrez le lieu de votre séjour"}}) }}
-                                    </div>
-                                    {{ form_errors(edit_form.brochure) }}
-
-                                </div>
                                 <!-- About input-->
                                 <div class="form-group">
                                     <label class="col-md-3 control-label" for="">{{ form_label(edit_form.text_presentation, 'A propos de vous') }}</label>
@@ -138,13 +129,13 @@
                                     {{ form_errors(edit_form.text_presentation) }}
                                 </div>
 
-                                <!-- Subjects input-->
+                                <!-- Role input-->
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.subjects, 'Vos matières') }}</label>
+                                    <label class="col-md-3 control-label" for="">{{ form_label(edit_form.role, 'Vous êtes ...') }}</label>
                                     <div class="col-md-9">
-                                        {{ form_widget(edit_form.subjects, {'attr':{'class':"form-control"}}) }}
+                                        {{ form_widget(edit_form.role, {'attr':{'class':"form-control"}}) }}
                                     </div>
-                                    {{ form_errors(edit_form.subjects) }}
+                                    {{ form_errors(edit_form.role) }}
                                 </div>
 
                                 <!-- Subjects input-->
@@ -160,9 +151,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="submit" value="Edit" />
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Envoyer" />
-                    {{ form_end(message_form) }}
+                    {{ form_end(edit_form) }}
                 </div>
 
 

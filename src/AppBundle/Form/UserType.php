@@ -17,7 +17,7 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('brochure', FileType::class, array('data_class' => null))
+            //->add('brochure', FileType::class, array('data_class' => null))
             ->add('text_presentation')
             ->add('role', ChoiceType::class, array(
                 'choices'  => array(
@@ -26,7 +26,7 @@ class UserType extends AbstractType
                 )))
             ->add('subjects',EntityType::class, array(
                 'class'=>'AppBundle\Entity\Subject',
-                'choice_label'=>'nom',
+                'choice_label'=>'name',
                 'expanded'=>false,
                 'multiple'=>true,
             ));

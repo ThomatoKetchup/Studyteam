@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Subject
  *
- * @ORM\Table(name="langue")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\LangueRepository")
+ * @ORM\Table(name="subject")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SubjectRepository")
  */
 class Subject
 {
@@ -34,6 +34,16 @@ class Subject
     protected $users;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Groupe", inversedBy="subject")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $groups;
+
+
+
+
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -51,29 +61,6 @@ class Subject
         return $this->id;
     }
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Subject
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
 
     /**
      * Add user
@@ -107,5 +94,53 @@ class Subject
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Subject
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set groups
+     *
+     * @param \AppBundle\Entity\Groupe $groups
+     *
+     * @return Subject
+     */
+    public function setGroups(\AppBundle\Entity\Groupe $groups)
+    {
+        $this->groups = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \AppBundle\Entity\Groupe
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }

@@ -18,12 +18,6 @@
             <div class = "col-md-5 col-sm-5">
 
                 <div class="form-inline test">
-                    <label><input type="text" placeholder="Que rechechez vous?"></input></label>
-                    <label>
-                        {{ form_label(form.filiereG, 'Filière') }}
-                        {{ form_widget(form.filiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la filière"}}) }}
-                        {{ form_errors(form.filiereG) }}
-                    </label>
 
                     <label>
                         {{ form_label(form.anneeEtudeG, 'Année d\'étude') }}
@@ -138,21 +132,15 @@
                     <div class="modal-body">
                         {{ form_start(groupform) }}
 
-                        {{ form_label(groupform.nomG, 'Nom de votre groupe') }}
-                        {{ form_widget(groupform.nomG, {'attr':{'class':'form-control', 'placeholder': "Entrez le nom de votre groupe"}}) }}
-                        {{ form_errors(groupform.nomG) }}
-
-                        {{ form_label(groupform.filiereG, 'Filière') }}
-                        {{ form_widget(groupform.filiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la filière"}}) }}
-                        {{ form_errors(groupform.filiereG) }}
-
-                        {{ form_label(groupform.anneeEtudeG, 'Année d\'étude') }}
-                        {{ form_widget(groupform.anneeEtudeG, {'attr':{'class':"form-control", 'placeholder': "Entrez l\'année d\'étude"}}) }}
-                        {{ form_errors(groupform.anneeEtudeG) }}
-
                         {{ form_label(groupform.matiereG, 'Matière') }}
                         {{ form_widget(groupform.matiereG, {'attr':{'class':"form-control", 'placeholder': "Entrez le nom de la matière"}}) }}
                         {{ form_errors(groupform.matiereG) }}
+
+                        {{ form_label(groupform.anneeEtudeG, 'Votre année d\'étude') }}
+                        {{ form_widget(groupform.anneeEtudeG, {'attr':{'class':"form-control", 'placeholder': "Entrez l\'année d\'étude"}}) }}
+                        {{ form_errors(groupform.anneeEtudeG) }}
+
+
 
                         {{ form_label(groupform.jourG, 'Jour de la semaine') }}
                         {{ form_widget(groupform.jourG, {'attr': {'class':"form-control", 'placeholder': "Entrez le jour de la semaine"}}) }}

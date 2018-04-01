@@ -10,7 +10,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="groupe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GroupeRepository")
- * @UniqueEntity("nomG")
  */
 
 class Groupe
@@ -25,14 +24,6 @@ class Groupe
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="filiereG", type="string", length=100)
-     */
-    private $filiereG;
 
     /**
      * @var string
@@ -70,18 +61,17 @@ class Groupe
      */
     private $heureFinG;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomG", type="string", length=100, unique=true)
-     */
-    private $nomG;
-
 
     /**
      * @ORM\ManyToMany(targetEntity="User", cascade={"persist"}, mappedBy="groupes")
      */
     protected $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Subject", mappedBy="groups" )
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subject;
 
 
     /**
@@ -283,27 +273,39 @@ class Groupe
         return $this->heureFinG;
     }
 
+
+
     /**
-     * Set nomG
+     * Add subject
      *
-     * @param string $nomG
+     * @param \AppBundle\Entity\Subject $subject
      *
      * @return Groupe
      */
-    public function setNomG($nomG)
+    public function addSubject(\AppBundle\Entity\Subject $subject)
     {
-        $this->nomG = $nomG;
+        $this->subject[] = $subject;
 
         return $this;
     }
 
     /**
-     * Get nomG
+     * Remove subject
      *
-     * @return string
+     * @param \AppBundle\Entity\Subject $subject
      */
-    public function getNomG()
+    public function removeSubject(\AppBundle\Entity\Subject $subject)
     {
-        return $this->nomG;
+        $this->subject->removeElement($subject);
+    }
+
+    /**
+     * Get subject
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubject()
+    {
+        return $this->subject;
     }
 }

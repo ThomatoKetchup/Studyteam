@@ -30,13 +30,6 @@ class Groupe
     /**
      * @var string
      *
-     * @ORM\Column(name="filiereG", type="string", length=100)
-     */
-    private $filiereG;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="anneeEtudeG", type="string", length=100)
      */
     private $anneeEtudeG;
@@ -82,6 +75,12 @@ class Groupe
      * @ORM\ManyToMany(targetEntity="User", cascade={"persist"}, mappedBy="groupes")
      */
     protected $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Subject", mappedBy="groups" )
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $subject;
 
 
     /**
@@ -305,5 +304,39 @@ class Groupe
     public function getNomG()
     {
         return $this->nomG;
+    }
+
+    /**
+     * Add subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     *
+     * @return Groupe
+     */
+    public function addSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subject[] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Remove subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     */
+    public function removeSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subject->removeElement($subject);
+    }
+
+    /**
+     * Get subject
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubject()
+    {
+        return $this->subject;
     }
 }
